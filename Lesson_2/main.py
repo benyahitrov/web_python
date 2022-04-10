@@ -54,7 +54,6 @@ class Card:
         return False
 
 
-
 class Player:
     def __init__(self, kind, number):
         self.kind = kind
@@ -143,15 +142,6 @@ def game_loop():
                     game_over = True
                     print(f'Игрок {player} выиграл')
                     break
-
-
-
-    #
-    #     # card.strike_out_number(n)
-    #     # card.print()
-    #     # if card.is_filled():
-    #     #     break
-    # print('Game over')
 
 
 if __name__ == '__main__':
