@@ -20,11 +20,15 @@ class Card:
                     row_numbers.append(' ')
             self.numbers.append(row_numbers)
 
-    def print(self):
-        print('-' * 22)
+    def __str__(self):
+        result = ''
+        result += '-' * 22
         for row in self.numbers:
-            print(*row)
-        print('-' * 22)
+            result += '\n'
+            result += ' '.join(map(str, row))
+        result += '\n'
+        result += '-' * 22
+        return result
 
     def get_unique_number(self) -> int:
         unique_number = random.randint(1, 90)
@@ -87,7 +91,7 @@ def players_init() -> List:
         player_kind = input(f'Введите тип для игрока №{number} (1-человек, 2-компьютер) ')
         while not players_number.isdigit() or 1 > int(player_kind) or int(player_kind) > 2:
             player_kind = input(f'Введите корректное значение (1-человек, 2-компьютер) ')
-        player = Player('human'if int(player_kind) == 1 else 'comp', number)
+        player = Player('human' if int(player_kind) == 1 else 'comp', number)
         players.append(player)
     return players
 
@@ -103,7 +107,7 @@ def cards_init(players: List) -> List:
 def print_cards(cards: List):
     for index, card in enumerate(cards):
         print(f'Карточка игрока {index + 1}:')
-        cards[index].print()
+        print(cards[index])
 
 
 def game_loop():
