@@ -27,7 +27,8 @@ def url_is_valid(url: str) -> bool:
     return True
 
 
-def get_urls(url: str, sublink=True, limit=20) -> List:  # Чтобы необходить все ссылки на сайте добавил лимит количества ссылок
+def get_urls(url: str, sublink=True,
+             limit=20) -> List:  # Чтобы необходить все ссылки на сайте добавил лимит количества ссылок
     urls = []
     try:
         response = requests.get(url)
